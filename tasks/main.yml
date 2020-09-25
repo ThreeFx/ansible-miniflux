@@ -1,0 +1,13 @@
+---
+- name: Install miniflux
+  become: True
+  apt:
+    name: miniflux
+    state: present
+
+- name: Configure miniflux
+  become: True
+  copy:
+    content: "{{ miniflux_config }}"
+    dest: /etc/miniflux.conf
+  notify: restart miniflux
