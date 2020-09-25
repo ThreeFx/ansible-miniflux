@@ -10,4 +10,6 @@
   copy:
     content: "{{ miniflux_config }}"
     dest: /etc/miniflux.conf
+    mode: 0440
+    owner: miniflux
   notify: restart miniflux
